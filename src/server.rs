@@ -1,8 +1,9 @@
+use std::net::SocketAddr;
+
 use crate::{appstate::AppState, render_html, routes, templates};
 use anyhow::Result;
 use listenfd::ListenFd;
-use salvo::{extra, prelude::*, Catcher};
-use std::net::SocketAddr;
+use salvo::{prelude::*, Catcher};
 
 pub async fn run() -> Result<()> {
     let mut listenfd = ListenFd::from_env();
@@ -14,7 +15,7 @@ pub async fn run() -> Result<()> {
     } else {
         let addr: SocketAddr = format!(
             "{}:{}",
-            std::env::var("HOST").unwrap_or("0.0.0.0".into()),
+            std::env::var("HOST").unwrap_or("127.0.0.1".into()),
             std::env::var("PORT").unwrap_or("8080".into())
         )
         .parse()?;
@@ -30,14 +31,14 @@ pub async fn run() -> Result<()> {
 
 async fn make_service() -> Result<Service> {
     let router = Router::new()
-        .hoop(extra::affix::inject(AppState::new_from_env()?))
-        .hoop(extra::logging::Logger::default())
-        .hoop(extra::compression::Compression::default().with_force_priority(true)) // Compression must be before CachingHeader.
-        .hoop(extra::caching_headers::CachingHeaders::default())
+        .hoop(salvo::affix::inject(AppState::new_from_env()?))
+        .hoop(salvo::logging::Logger::default())
+        .hoop(salvo::compression::Compression::default().with_force_priority(true)) // Compression must be before CachingHeader.
+        .hoop(salvo::caching_headers::CachingHeaders::default())
         .get(routes::posts::get_posts)
         .push(
             Router::with_path("/posts/<slug>")
-                .hoop(extra::trailing_slash::add_slash())
+                .hoop(salvo::trailing_slash::add_slash())
                 .get(routes::posts::get_post),
         )
         .push(Router::with_path("/posts/<slug>/<attachment>").get(routes::posts::get_attachment))
