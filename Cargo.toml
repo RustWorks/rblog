@@ -1,6 +1,6 @@
 [package]
 name = "rblog"
-version = "0.252.0"
+version = "0.253.0"
 authors = ["Prabir Shrestha <mail@prabir.me>"]
 edition = "2021"
 license = "MIT"
@@ -9,7 +9,7 @@ repository = "https://github.com/prabirshrestha/rblog"
 
 build = "src/build.rs"
 [build-dependencies]
-ructe = { version = "0.15.0", features = ["sass", "mime03"] }
+ructe = { version = "0.16.1", features = ["sass", "mime03"] }
 
 [dependencies]
 anyhow = "1.0.70"
@@ -21,11 +21,11 @@ listenfd = "1.0.1"
 mime = "0.3.17"
 mime_guess = "2.0.4"
 pulldown-cmark = "0.9"
-ructe = { version = "0.15.0" }
+ructe = "0.16.1"
 salvo = { version = "0.37.9", features = ["affix", "anyhow", "caching-headers", "compression", "logging", "trailing-slash"] }
 serde = { version = "1.0.156", features = ["derive"] }
 serde_yaml = "0.9.19"
 slug = "0.1.4"
-tokio = { version = "1.26.0" }
+tokio = { version = "1.27.0" }
 tracing = "0.1.37"
 tracing-subscriber = "0.3.16"
