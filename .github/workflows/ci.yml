@@ -24,7 +24,6 @@ jobs:
       uses: actions/checkout@v3
       with:
         fetch-depth: 1
-
     - name: Install Rust
       uses: actions-rs/toolchain@v1
       with:
@@ -32,6 +31,8 @@ jobs:
         override: true
         profile: minimal
         components: rustfmt, clippy
+    - name: rust cache
+      uses: Swatinem/rust-cache@v2
     - name: rust fmt
       uses: actions-rs/cargo@v1
       with:
