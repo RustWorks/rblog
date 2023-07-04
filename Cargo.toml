@@ -1,6 +1,6 @@
 [package]
 name = "rblog"
-version = "0.255.0"
+version = "0.256.0"
 authors = ["Prabir Shrestha <mail@prabir.me>"]
 edition = "2021"
 license = "MIT"
@@ -22,9 +22,9 @@ mime_guess = "2.0.4"
 pulldown-cmark = "0.9"
 ructe = "0.16.1"
 salvo = { version = "0.44.1", features = ["affix", "anyhow", "caching-headers", "compression", "logging", "trailing-slash"] }
-serde = { version = "1.0.164", features = ["derive"] }
-serde_yaml = "0.9.21"
+serde = { version = "1.0.166", features = ["derive"] }
+serde_yaml = "0.9.22"
 slug = "0.1.4"
-tokio = { version = "1.28.2" }
+tokio = { version = "1.29.1" }
 tracing = "0.1.37"
 tracing-subscriber = "0.3.17"
