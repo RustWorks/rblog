@@ -1,6 +1,6 @@
 [package]
 name = "rblog"
-version = "0.268.0"
+version = "0.269.0"
 authors = ["Prabir Shrestha <mail@prabir.me>"]
 edition = "2021"
 license = "MIT"
@@ -12,19 +12,19 @@ build = "src/build.rs"
 ructe = { version = "0.17.0", features = ["sass", "mime03"] }
 
 [dependencies]
-anyhow = "1.0.80"
-async-fs = "2.1.1"
-chrono = { version = "0.4.35", features = ["serde"] }
+anyhow = "1.0.82"
+async-fs = "2.1.2"
+chrono = { version = "0.4.37", features = ["serde"] }
 dotenv = "0.15.0"
 listenfd = "1.0.1"
 mime = "0.3.17"
 mime_guess = "2.0.4"
-pulldown-cmark = "0.10"
+pulldown-cmark = "0.11"
 ructe = "0.17.0"
-salvo = { version = "0.66.2", features = ["affix", "anyhow", "caching-headers", "compression", "logging", "trailing-slash"] }
-serde = { version = "1.0.197", features = ["derive"] }
+salvo = { version = "0.67.0", features = ["affix", "anyhow", "caching-headers", "compression", "logging", "trailing-slash"] }
+serde = { version = "1.0.200", features = ["derive"] }
 serde_yaml = "0.9.32"
 slug = "0.1.5"
-tokio = { version = "1.36.0" }
+tokio = { version = "1.37.0" }
 tracing = "0.1.40"
 tracing-subscriber = "0.3.18"
